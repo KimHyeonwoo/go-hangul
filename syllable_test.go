@@ -5,7 +5,7 @@ import (
 	"unicode/utf8"
 )
 
-func ExampleRune() {
+func ExampleSyllable() {
 	s := "읽기"
 	syllables := make([]Syllable, 0, utf8.RuneCountInString(s))
 	for _, r := range s {
