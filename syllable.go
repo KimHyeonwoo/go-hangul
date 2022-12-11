@@ -36,6 +36,10 @@ func (s Syllable) Decompose(compatibility bool, level int) []rune {
 	return append(append(s.Choseong.Decompose(compatibility, level), s.Jungseong.Decompose(compatibility, level)...), s.Jongseong.Decompose(compatibility, level)...)
 }
 
+func (s Syllable) DecomposeLen(level int) int {
+	return len(s.Decompose(false, level))
+}
+
 // newSyllable receives rune in range of `Hangul Syllables` and returns a Syllable.
 func newSyllable(r rune) Syllable {
 	cho := (r - SyllableBase) / (JungseongCount * JongseongCount)
@@ -65,4 +69,12 @@ func (s Syllables) Decompose(compatibility bool, level int) [][]rune {
 		runes = append(runes, syllable.Decompose(compatibility, level))
 	}
 	return runes
+}
+
+func (s Syllables) DecomposeLen(level int) int {
+	var length int
+	for _, syllable := range s {
+		length += syllable.DecomposeLen(level)
+	}
+	return length
 }
