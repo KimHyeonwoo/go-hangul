@@ -36,7 +36,8 @@ func (s Syllable) Runes(compatibility bool, level int) []rune {
 	return append(append(s.Choseong.Runes(compatibility, level), s.Jungseong.Runes(compatibility, level)...), s.Jongseong.Runes(compatibility, level)...)
 }
 
-func NewSyllable(r rune) Syllable {
+// newSyllable receives rune in range of `Hangul Syllables` and returns a Syllable.
+func newSyllable(r rune) Syllable {
 	cho := (r - SyllableBase) / (JungseongCount * JongseongCount)
 	jung := ((r - SyllableBase) % (JungseongCount * JongseongCount)) / JongseongCount
 	jong := ((r - SyllableBase) % (JungseongCount * JongseongCount)) % JongseongCount
