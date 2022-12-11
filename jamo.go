@@ -87,11 +87,11 @@ func (c Choseong) Rune(compatibility bool) rune {
 	return rune(c + ChoseongBase)
 }
 
-// Runes returns the slice of runes for Unicode `Hangul Jamo` or `Hangul Compatibility Jamo`.
+// Decompose returns the slice of runes for Unicode `Hangul Jamo` or `Hangul Compatibility Jamo`.
 // If `compatibility` is true, it returns the slice of runes for `Hangul Compatibility Jamo`.
 // Otherwise, it returns the slice of runes for `Hangul Jamo`.
 // If `level` is FullDecompose, it decomposes a double consonants into two to three runes.
-func (c Choseong) Runes(compatibility bool, level int) []rune {
+func (c Choseong) Decompose(compatibility bool, level int) []rune {
 	if level < DefaultDecompose || level > FullDecompose {
 		return nil
 	}
@@ -211,11 +211,11 @@ func (j Jungseong) Rune(compatibility bool) rune {
 	return rune(j + JungseongBase)
 }
 
-// Runes returns the slice of runes for Unicode `Hangul Jamo` or `Hangul Compatibility Jamo`.
+// Decompose returns the slice of runes for Unicode `Hangul Jamo` or `Hangul Compatibility Jamo`.
 // If `compatibility` is true, it returns the slice of runes for `Hangul Compatibility Jamo`.
 // Otherwise, it returns the slice of runes for `Hangul Jamo`.
 // If `level` is FullDecompose, it decomposes a double vowels into two to three runes.
-func (j Jungseong) Runes(compatibility bool, level int) []rune {
+func (j Jungseong) Decompose(compatibility bool, level int) []rune {
 	if level < DefaultDecompose || level > FullDecompose {
 		return nil
 	}
@@ -369,11 +369,11 @@ func (j Jongseong) Rune(compatibility bool) rune {
 	return rune(j + JongseongBase)
 }
 
-// Runes returns the slice of runes for Unicode `Hangul Jamo` or `Hangul Compatibility Jamo`.
+// Decompose returns the slice of runes for Unicode `Hangul Jamo` or `Hangul Compatibility Jamo`.
 // If `compatibility` is true, it returns the slice of runes for `Hangul Compatibility Jamo`.
 // Otherwise, it returns the slice of runes for `Hangul Jamo`.
 // If `level` is FullDecompose, it decomposes a double consonants into two to three runes.
-func (j Jongseong) Runes(compatibility bool, level int) []rune {
+func (j Jongseong) Decompose(compatibility bool, level int) []rune {
 	if level < DefaultDecompose || level > FullDecompose {
 		return nil
 	}

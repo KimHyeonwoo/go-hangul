@@ -45,9 +45,9 @@ func getRuneType(r rune) runeType {
 	}
 }
 
-// Parse parses the string and returns a slice of Syllables.
-func Parse(s string) ([]Syllable, error) {
-	var syllables []Syllable
+// Parse parses the string and returns a Syllables.
+func Parse(s string) (Syllables, error) {
+	var syllables Syllables
 	var state = parseStateInitial
 
 	var choseong Choseong

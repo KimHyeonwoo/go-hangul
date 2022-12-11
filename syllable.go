@@ -24,16 +24,16 @@ func (s Syllable) Rune() rune {
 	return rune(SyllableBase + int(s.Choseong)*JungseongCount*JongseongCount + int(s.Jungseong)*JongseongCount + int(s.Jongseong))
 }
 
-// Runes returns the `decomposed` slice of runes for `Hangul Jamo` or `Hangul Compatibility Jamo`.
+// Decompose returns the `decomposed` slice of runes for `Hangul Jamo` or `Hangul Compatibility Jamo`.
 // If `compatibility` is true, it returns the slice of runes for `Hangul Compatibility Jamo`.
 // Otherwise, it returns the slice of runes for `Hangul Jamo`.
 // If `level` is FullDecompose, it decomposes a double consonants and double vowels into two to three runes.
-func (s Syllable) Runes(compatibility bool, level int) []rune {
+func (s Syllable) Decompose(compatibility bool, level int) []rune {
 	if level < DefaultDecompose || level > FullDecompose {
 		return nil
 	}
 
-	return append(append(s.Choseong.Runes(compatibility, level), s.Jungseong.Runes(compatibility, level)...), s.Jongseong.Runes(compatibility, level)...)
+	return append(append(s.Choseong.Decompose(compatibility, level), s.Jungseong.Decompose(compatibility, level)...), s.Jongseong.Decompose(compatibility, level)...)
 }
 
 // newSyllable receives rune in range of `Hangul Syllables` and returns a Syllable.
@@ -43,4 +43,26 @@ func newSyllable(r rune) Syllable {
 	jong := ((r - SyllableBase) % (JungseongCount * JongseongCount)) % JongseongCount
 
 	return Syllable{Choseong(cho), Jungseong(jung), Jongseong(jong)}
+}
+
+type Syllables []Syllable
+
+func (s Syllables) Len() int {
+	return len(s)
+}
+
+func (s Syllables) String() string {
+	runes := make([]rune, 0, len(s))
+	for _, syllable := range s {
+		runes = append(runes, syllable.Rune())
+	}
+	return string(runes)
+}
+
+func (s Syllables) Decompose(compatibility bool, level int) [][]rune {
+	runes := make([][]rune, 0, len(s))
+	for _, syllable := range s {
+		runes = append(runes, syllable.Decompose(compatibility, level))
+	}
+	return runes
 }
