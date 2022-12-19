@@ -1,6 +1,9 @@
 # go-hangul
 ![Run tests](https://github.com/KimHyeonwoo/go-hangul/workflows/Run%20tests/badge.svg)
 [![Release](https://img.shields.io/github/v/tag/KimHyeonwoo/go-hangul?label=Release)](https://github.com/KimHyeonwoo/go-hangul/releases)
+[![Go Reference](https://pkg.go.dev/badge/github.com/KimHyeonwoo/go-hangul.svg)](https://pkg.go.dev/github.com/KimHyeonwoo/go-hangul)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 go-hangul 은 한글 자모 분리 및 조합을 위한 Go 패키지입니다.
 
@@ -39,3 +42,11 @@ func main() {
 	fmt.Printf("%c\n", syllables.Decompose(true, hangul.FullDecompose))
 }
 ```
+
+## Contributing
+
+* 새로운 기능 추가를 원하신다면 Issue나 PR을 올려주세요.
+
+## License
+
+[MIT](/LICENSE) license.
