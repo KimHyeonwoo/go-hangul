@@ -1,4 +1,6 @@
 # go-hangul
+![Run tests](https://github.com/KimHyeonwoo/go-hangul/workflows/Run%20tests/badge.svg)
+[![Release](https://img.shields.io/github/v/tag/KimHyeonwoo/go-hangul?label=Release)](https://github.com/KimHyeonwoo/go-hangul/releases)
 
 go-hangul 은 한글 자모 분리 및 조합을 위한 Go 패키지입니다.
 
