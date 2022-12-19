@@ -37,3 +37,11 @@ func main() {
 	fmt.Printf("%c\n", syllables.Decompose(true, hangul.FullDecompose))
 }
 ```
+
+## Contributing
+
+* 새로운 기능 추가를 원하신다면 Issue나 PR을 올려주세요.
+
+## License
+
+[MIT](/LICENSE) license.
